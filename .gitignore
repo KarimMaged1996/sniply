@@ -1,0 +1,6 @@
+.venv/
+.prettierignore
+__pychache__
+*.pyc
+*/__pychache__/
+db.sqlite3
