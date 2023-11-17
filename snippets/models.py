@@ -11,10 +11,18 @@ def short_uuid():
 
 # Create your models here.
 class Snippet(models.Model):
+    LANGUAGE_CHOICES = (
+        ("javascript", "JavaScript"),
+        ("python", "Python"),
+        ("java", "Java"),
+        ("c", "C"),
+        ("c++", "C++"),
+        ("c#", "C#"),
+    )
     id = models.CharField(
         primary_key=True, unique=True, default=short_uuid, max_length=6
     )
-    language = models.CharField(max_length=100)
+    language = models.CharField(max_length=100, choices=LANGUAGE_CHOICES)
     body = models.TextField()
     owner = models.ForeignKey(CustomUser, on_delete=models.CASCADE)
 

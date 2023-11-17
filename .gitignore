@@ -5,3 +5,4 @@ __pychache__
 */__pychache__/
 db.sqlite3
 /media
+codemirror/

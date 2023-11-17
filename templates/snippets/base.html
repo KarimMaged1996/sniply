@@ -4,9 +4,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
     <title>Document</title>
     <link rel="stylesheet" href="{% static 'css/base.css' %}">
-    {% block head_content %}{% endblock %}
+    <script src="{% static '/codemirror/codemirror/codemirror-5.65.15/lib/codemirror.js' %}"></script>
+    <link
+      rel="stylesheet"
+      href="{% static 'codemirror/codemirror/codemirror-5.65.15/lib/codemirror.css' %}"
+    />
+    <script src="{% static 'codemirror/codemirror/codemirror-5.65.15/mode/javascript/javascript.js' %}"></script>
+    <script src="{% static 'codemirror/codemirror/codemirror-5.65.15/mode/clike/clike.js' %}"></script>
+    <script src="{% static 'codemirror/codemirror/codemirror-5.65.15/mode/python/python.js' %}"></script>
+    {% block head_content %}
+    {% endblock %}
 </head>
 <body>
     <nav>

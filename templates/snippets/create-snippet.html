@@ -1,8 +1,10 @@
 {% extends 'snippets/base.html' %}
+{% load static %}
 
 <!-- for css and js links -->
 {% block head_content %}
-{% endblock %}
+<script src="{% static 'js/create-snippet.js' %}" defer></script>
+{% endblock head_content %}
 
 
 <!-- for main content -->
@@ -10,6 +12,6 @@
 <form method="post">
     {% csrf_token %}
     {{ form.as_p }}
-    <button>Create</button>
 </form>
+<button class="submit-btn">Create</button>
 {% endblock %}
