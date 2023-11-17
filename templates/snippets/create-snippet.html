@@ -1,0 +1,15 @@
+{% extends 'snippets/base.html' %}
+
+<!-- for css and js links -->
+{% block head_content %}
+{% endblock %}
+
+
+<!-- for main content -->
+{% block content %}
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button>Create</button>
+</form>
+{% endblock %}
