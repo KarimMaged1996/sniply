@@ -1,0 +1,15 @@
+{% extends 'snippets/base.html' %}
+{% load static %}
+
+<!-- for css and js links -->
+{% block head_content %}
+<script src="{% static 'js/snippet-detail.js' %}" defer></script>
+{% endblock head_content %}
+
+
+<!-- for main content -->
+{% block content %}
+<p>{{snippet.owner}}</p>
+<p>{{snippet.language}}</p>
+<textarea id="" cols="30" rows="10" data-language="{{ snippet.language }}">{{snippet.body}}</textarea>
+{% endblock %}
