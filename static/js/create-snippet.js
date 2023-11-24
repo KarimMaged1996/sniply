@@ -4,7 +4,7 @@ const form = document.querySelector("form");
 const button = document.querySelector(".submit-btn");
 let codeMirrorInstance;
 
-export function getLanguageMode(choice) {
+function getLanguageMode(choice) {
   switch (choice) {
     case "javascript":
       return "javascript";

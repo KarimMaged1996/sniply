@@ -1,0 +1,19 @@
+{% extends 'snippets/base.html' %}
+{% load static %}
+
+<!-- for css and js links -->
+{% block head_content %}
+<script src="{% static 'js/edit-snippet.js' %}" defer></script>
+{% endblock head_content %}
+
+
+<!-- for main content -->
+{% block content %}
+<div style="display: none;"  data-language="{{language}}" class="language"></div>
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Edit</button>
+</form>
+<button><a href="{% url 'delete-snippet' pk=slug %}"> Delete </a></button>
+{% endblock %}

@@ -1,0 +1,13 @@
+{% extends 'snippets/base.html' %}
+{% load static %}
+
+
+<!-- for main content -->
+{% block content %}
+<p>Are you Sure you want to delete The Snippet</p>
+<form method="post">
+    {% csrf_token %}
+    {{from.as_p}}
+    <button type="submit">Delete</button>
+</form>
+{% endblock %}
