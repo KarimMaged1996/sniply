@@ -1,0 +1,21 @@
+{% extends 'snippets/base.html' %}
+{% load static %}
+
+<!-- for css and js links -->
+{% block head_content %}
+<script src="{% static 'js/profile.js' %}" defer></script>
+{% endblock head_content %}
+
+
+<!-- for main content -->
+{% block content %}
+<div>{{user.email}}</div>
+<img src="http://127.0.0.1:8000/media/{{user.profile_image}}" alt="profile Photo" width="35">
+{% for snippet in snippets %}
+<div>
+    <textarea data-language="{{snippet.language}}">{{snippet.body}}</textarea> <br>
+    <button><a href="{% url 'edit-snippet' pk=snippet.id %}">Edit</a></button> 
+    <button><a href="{% url 'delete-snippet' pk=snippet.id %}">Delete</a></button>
+</div>
+{% endfor %}
+{% endblock %}

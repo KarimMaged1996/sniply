@@ -1,8 +1,17 @@
+from typing import Any
+from django.db.models.query import QuerySet
 from django.forms.models import BaseModelForm
 from django.http import HttpResponse
-from django.views.generic import CreateView, DetailView, UpdateView, DeleteView
+from django.views.generic import (
+    CreateView,
+    DetailView,
+    UpdateView,
+    DeleteView,
+    ListView,
+)
 from .models import Snippet
 from django.urls import reverse
+from users.models import CustomUser
 
 
 # Create your views here.
@@ -45,7 +54,24 @@ class EditSnippet(UpdateView):
 
 class DeleteSnippet(DeleteView):
     model = Snippet
-    success_url = "/"
+    success_url = "/profile"
     success_message = "Your Snippet Was Deleted Successfully"
     template_name = "snippets/delete-snippet.html"
     context_object_name = "snippet"
+
+
+class UserSnippetsList(ListView):
+    model = Snippet
+    context_object_name = "snippets"
+    template_name = "snippets/profile.html"
+
+    def get_queryset(self):
+        return Snippet.objects.filter(owner=self.request.user)
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        user = self.request.user
+        user_obj = CustomUser.objects.get(pk=user.pk)
+        print(user_obj.__dict__)
+        context["user"] = user_obj
+        return context
