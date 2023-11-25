@@ -27,9 +27,13 @@
             <div>Home</div>
             <div> <a href="{% url 'profile' %}">Profile</a></div>
         </div>
+        
+        {% if user.is_authenticated %}
         <div class="logout">
             <button><a href="{% url 'logout' %}">Logout</a></button>
         </div>
+        <img src="http://127.0.0.1:8000/media/{{user.profile_image}}" alt="profile Photo" width="35">
+        {% endif %}
     </nav>
     <div class="dynamic-content">
         {% block content %}
