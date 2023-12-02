@@ -9,10 +9,17 @@
     <script src="{% static 'js/register.js' %}"></script>
 </head>
 <body>
-    <form method="post">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <button>Register</button>
-    </form>
+  <div class="registerFormContainer">
+      <form method="post">
+          {% csrf_token %}
+          <h1>Sniply</h1>
+          {{ form.as_p }}
+          <button>Register</button>
+      </form>
+      <div class="login">
+        <span>Already have an Account ?</span>
+        <a href="{% url 'login' %}">Login</a>
+     </div>
+  </div>
 </body>
 </html>
